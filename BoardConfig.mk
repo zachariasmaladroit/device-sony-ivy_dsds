@@ -14,8 +14,12 @@
 
 include device/sony/kitakami/PlatformConfig.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := E6553
+# Include path
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
+TARGET_BOOTLOADER_BOARD_NAME := E6533
+
+TARGET_KERNEL_CONFIG := aosp_kitakami_ivy_dsds_defconfig
 BOARD_KERNEL_CMDLINE += androidboot.hardware=ivy
 
 WIFI_BUS := PCIE

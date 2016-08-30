@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
 DEVICE_PACKAGE_OVERLAYS += \
     device/sony/ivy/overlay
 
@@ -24,6 +28,9 @@ PRODUCT_COPY_FILES := \
     device/sony/ivy/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/sony/ivy/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/sony/ivy/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# Temporary rild hack for DS;
+PRODUCT_COPY_FILES := device/sony/ivy/temp/rild:system/bin/rild
 
 # Device Specific Permissions
 PRODUCT_COPY_FILES += \
@@ -62,6 +69,18 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.sf.lcd_density=480 \
     ro.usb.pid_suffix=1C9
+
+# LTE, GSM/WCDMA
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.multisim.config=dsds \
+    persist.radio.disable_flexmap=1 \
+    persist.radio.ignore_dom_time=120 \
+    persist.radio.multisim.config=dsds \
+    ro.multisim.set_audio_params=true \
+    ro.telephony.default_network=9,1
+
+# Dalvik Heap
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/kitakami/platform.mk)
