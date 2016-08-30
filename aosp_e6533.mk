@@ -12,14 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_KERNEL_CONFIG := aosp_kitakami_ivy_defconfig
+TARGET_KERNEL_CONFIG := aosp_kitakami_ivy_dsds_defconfig
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/ivy/device.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := aosp_e6553
+PRODUCT_NAME := aosp_e6533
 PRODUCT_DEVICE := ivy
 PRODUCT_MODEL := Xperia Z3+ (AOSP)
 PRODUCT_BRAND := Sony

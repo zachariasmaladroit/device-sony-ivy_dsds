@@ -63,6 +63,15 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.sf.lcd_density=480 \
     ro.usb.pid_suffix=1C9
 
+# LTE, GSM/WCDMA
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.multisim.config=dsds \
+    persist.radio.disable_flexmap=1 \
+    persist.radio.ignore_dom_time=120 \
+    persist.radio.multisim.config=dsds \
+    ro.multisim.set_audio_params=true \
+    ro.telephony.default_network=9,1
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/kitakami/platform.mk)
 $(call inherit-product, vendor/sony/kitakami-ivy/ivy-vendor.mk)

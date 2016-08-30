@@ -14,7 +14,7 @@
 
 include device/sony/kitakami/PlatformConfig.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := E6553
+TARGET_BOOTLOADER_BOARD_NAME := E6533
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=ivy
 
