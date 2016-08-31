@@ -29,9 +29,6 @@ PRODUCT_COPY_FILES := \
     device/sony/ivy/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/sony/ivy/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml
 
-# Temporary rild hack for DS;
-PRODUCT_COPY_FILES := device/sony/ivy/temp/rild:system/bin/rild
-
 # Device Specific Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
